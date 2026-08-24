@@ -3,45 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Página Web</title>
+    <title>BioConsultoría S.A.S. - Servicios de Consultoría Ambiental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1b4332;
+            --primary-light: #2d6a4f;
+            --accent: #52b788;
+            --accent-soft: #d8f3dc;
+            --dark: #081c15;
+            --light: #f8f9fa;
+            --text-gray: #4a5568;
+            --shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+        /* Presentation Container */
+        .deck-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 600px;
+            position: relative;
+            background: #ffffff;
+            color: #2b2b2b;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Slide Content Styling */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .slide-header {
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-header h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slide-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Hero Slide Specifics */
+        .slide-hero {
+            background: linear-gradient(135deg, rgba(8, 28, 21, 0.9), rgba(27, 67, 50, 0.85)), 
+                        url('http://googleusercontent.com/image_collection/image_retrieval/1192188173796350001_0') center/cover;
+            color: white;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            max-width: 400px;
         }
-        h1 { color: #2c3e50; }
-        p { line-height: 1.5; }
-        .btn {
-            display: inline-block;
-            margin-top: 1rem;
+
+        .slide-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--accent-soft);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .slide-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Cards Grid for Services */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #f8faf9;
+            border-top: 4px solid var(--primary-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p, .card ul {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Controls Navigation Bar */
+        .controls {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 2rem;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.9);
             padding: 0.5rem 1rem;
-            background-color: #0969da;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .btn-nav:hover {
+            background: var(--accent);
+        }
+
+        .slide-counter {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: var(--accent-soft);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
         }
-        .btn:hover { background-color: #0451a5; }
+
+        .btn-cta:hover {
+            background-color: var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            .deck-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+            .grid-3, .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .slide {
+                padding: 1.5rem;
+            }
+            .slide-hero h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>¡Hola, mundo!</h1>
-        <p>Esta es mi nueva página web alojada de forma gratuita en GitHub Pages.</p>
-        <a href="https://github.com" class="btn" target="_blank">Visitar GitHub</a>
+
+    <div class="deck-container">
+
+        <!-- Slide 1: Portada -->
+        <div class="slide slide-hero active">
+            <h1>BioConsultoría S.A.S.</h1>
+            <p>Soluciones de ingeniería ambiental, gestión de licencias y sostenibilidad corporativa para el desarrollo sostenible de su organización.</p>
+        </div>
+
+        <!-- Slide 2: Quiénes Somos -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Quiénes Somos</h2>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Nuestra Firma</h3>
+                        <p>Somos una consultora ambiental estratégica enfocada en brindar servicios integrales de ingeniería, cumplimiento normativo y gestión de licencias ante autoridades ambientales como la ANLA y las CAR.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Propuesta de Valor</h3>
+                        <p>Acompañamos al sector privado e industrial en la estructuración de proyectos ambientalmente viables, minimizando riesgos jurídicos y optimizando los costos de implementación de medidas de manejo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Portafolio de Servicios -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Nuestros Servicios</h2>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>Licenciamiento Ambiental</h3>
+                        <ul>
+                            <li>Estudios de Impacto Ambiental (EIA)</li>
+                            <li>Diagnóstico Ambiental de Alternativas (DAA)</li>
+                            <li>Trámite de Permisos de Aprovechamiento Forestal</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Cumplimiento & EHS</h3>
+                        <ul>
+                            <li>Planes de Manejo Ambiental (PMA)</li>
+                            <li>Auditorías e Interventoría Ambiental</li>
+                            <li>Seguimiento y Cumplimiento de Términos ANLA</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Sostenibilidad Corporativa</h3>
+                        <ul>
+                            <li>Planes de Compensación por Pérdida de Biodiversidad</li>
+                            <li>Reportes ESG y Métricas Ambientales</li>
+                            <li>Asesoría Virtual para Empresas B2B</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Por Qué Elegirnos -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Ventajas Competitivas</h2>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Rigor Técnico & Jurídico</h3>
+                        <p>Equipos multidisciplinarios liderados por ingenieros forestales y especialistas en gestión ambiental con amplia experiencia normativa.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Servicios Virtuales & B2B</h3>
+                        <p>Agilidad y cobertura nacional mediante modelos de consultoría remota diseñados a la medida de medianas y grandes empresas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Contacto -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Contáctenos</h2>
+            </div>
+            <div class="slide-body">
+                <div class="contact-info">
+                    <h3>¿Listo para estructurar su próximo proyecto?</h3>
+                    <p>Agende una sesión de diagnóstico ambiental con nuestro equipo técnico.</p>
+                    <p style="margin-top: 1rem; font-weight: 600; color: var(--primary);">Bogotá D.C., Colombia</p>
+                    <a href="mailto:contacto@bioconsultoriasas.com" class="btn-cta">Enviar Correo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="controls">
+            <button class="btn-nav" id="prevBtn">&lt;</button>
+            <span class="slide-counter" id="slideCounter">1 / 5</span>
+            <button class="btn-nav" id="nextBtn">&gt;</button>
+        </div>
+
     </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slideCounter');
+        let currentSlide = 0;
+
+        function updateSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide(currentSlide);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide(currentSlide);
+        });
+
+        // Soporte para cambiar diapositiva con las flechas del teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextBtn.click();
+            if (e.key === 'ArrowLeft') prevBtn.click();
+        });
+    </script>
 </body>
 </html>
