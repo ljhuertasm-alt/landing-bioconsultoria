@@ -1,11 +1,325 @@
-<!-- Contacto Section -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioConsultoría S.A.S. | Consultoría y Gestión Ambiental</title>
+    
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1b4332;
+            --primary-dark: #081c15;
+            --accent: #2d6a4f;
+            --accent-light: #52b788;
+            --text-dark: #2b2d42;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Header & Navegación */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-light);
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(8, 28, 21, 0.88), rgba(27, 67, 50, 0.82)), 
+                        url('./imagenes/campo.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-light);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Servicios Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--accent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Galería */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Contacto */
+        .contact {
+            text-align: center;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-top: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .contact-box {
+            padding: 3rem 2rem;
+        }
+
+        .contact-box h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem 5%;
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navegación -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <!-- Para mostrar tu logo en imagen, descomenta la siguiente línea y sube la imagen: -->
+                <!-- <img src="./imagenes/logo.png" alt="BioConsultoría S.A.S."> -->
+                BioConsultoría <span>S.A.S.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Soluciones Integrales en Consultoría & Gestión Ambiental</h1>
+            <p>Acompañamos al sector privado y proyectos de ingeniería en el cumplimiento regulatorio, licenciamiento ambiental y sostenibilidad territorial.</p>
+            <a href="#contacto" class="btn btn-primary">Iniciar Diagnóstico</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Asesoría especializada adaptable a las necesidades operativas de su empresa.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Licenciamiento y Permisos</h3>
+                <p>Elaboración y trámite de Estudios de Impacto Ambiental (EIA), Diagnóstico Ambiental de Alternativas (DAA) y permisos de aprovechamiento de recursos naturales.</p>
+            </div>
+            <div class="service-card">
+                <h3>Planes de Manejo Ambiental</h3>
+                <p>Estructuración, ejecución y seguimiento de PMA, asegurando el cumplimiento normativo ante las autoridades ambientales (ANLA, CAR, entre otras).</p>
+            </div>
+            <div class="service-card">
+                <h3>Ingeniería Forestal & Campo</h3>
+                <p>Inventarios forestales, caracterización de flora, planes de compensación y monitoreo técnico directo en territorio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería / Trabajo en Campo -->
+    <section id="galeria" style="background-color: var(--white);">
+        <div class="section-title">
+            <h2>Nuestros Proyectos & Campo</h2>
+            <p>Presencia técnica e inspección ambiental en el territorio nacional.</p>
+        </div>
+        <div class="gallery-grid">
+            <img src="./imagenes/proyecto1.jpg" alt="Evaluación y estudio ambiental en campo" onerror="this.src='https://via.placeholder.com/400x250?text=Trabajo+en+Campo+1'">
+            <img src="./imagenes/proyecto2.jpg" alt="Monitoreo e inventario forestal" onerror="this.src='https://via.placeholder.com/400x250?text=Trabajo+en+Campo+2'">
+            <img src="./imagenes/proyecto3.jpg" alt="Consultoría ambiental técnica" onerror="this.src='https://via.placeholder.com/400x250?text=Trabajo+en+Campo+3'">
+        </div>
+    </section>
+
+    <!-- Contacto -->
     <section id="contacto" class="contact">
         <div class="contact-box">
             <h3>¿Listo para estructurar su próximo proyecto?</h3>
             <p>Agende una sesión de diagnóstico ambiental con nuestro equipo especializado.</p>
-            <p style="font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem;">
+            <div class="contact-email">
                 ✉️ contacto@bioconsultoriasas.com
-            </p>
+            </div>
             <a href="mailto:contacto@bioconsultoriasas.com" class="btn btn-primary">Enviar Correo Electrónico</a>
         </div>
     </section>
@@ -13,7 +327,10 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 BioConsultoría S.A.S. Todos los derechos reservados. | Bogotá D.C., Colombia</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-            Contacto directo: <a href="mailto:contacto@bioconsultoriasas.com" style="color: var(--accent-light); text-decoration: none;">contacto@bioconsultoriasas.com</a>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">
+            Contacto directo: <a href="mailto:contacto@bioconsultoriasas.com">contacto@bioconsultoriasas.com</a>
         </p>
     </footer>
+
+</body>
+</html>
