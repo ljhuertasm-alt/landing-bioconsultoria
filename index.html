@@ -204,7 +204,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -222,18 +222,18 @@
             margin-bottom: 1rem;
         }
 
-        /* Services Section */
+        /* Services Section - Ajustado a 4 columnas en la misma línea */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
@@ -256,8 +256,9 @@
 
         .service-card h3 {
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .service-card ul {
@@ -268,10 +269,11 @@
 
         .service-card ul li {
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 1.3rem;
             margin-bottom: 0.6rem;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.88rem;
+            line-height: 1.4;
         }
 
         .service-card ul li::before {
@@ -285,11 +287,11 @@
         .btn-detail {
             display: inline-block;
             margin-top: auto;
-            padding-top: 1rem;
+            padding-top: 0.8rem;
             color: var(--primary);
             font-weight: 700;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: color 0.3s;
         }
 
@@ -365,7 +367,13 @@
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Adaptación móvil optimizada (Navegación & Pantallas Pequeñas) */
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2x2 en tablets */
+            }
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -402,6 +410,9 @@
             .btn {
                 width: 100%;
                 text-align: center;
+            }
+            .services-grid {
+                grid-template-columns: 1fr; /* 1 columna vertical en pantallas móviles */
             }
         }
     </style>
@@ -451,7 +462,7 @@
         </div>
     </section>
 
-    <!-- Servicios Section -->
+    <!-- Servicios Section (4 Bloques en la misma línea) -->
     <section id="servicios">
         <div class="section-title">
             <h2>Portafolio de Servicios</h2>
