@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioConsultoría S.A.S. | Consultoría Ambiental Estratégica</title>
+    <title>BioConsultoría S.A.S. | Consultoría Ambiental Estratégica & ESG</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -99,7 +99,7 @@
             background-color: var(--accent) !important;
         }
 
-        /* Hero Section (Full Width) */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, rgba(8, 28, 21, 0.88), rgba(27, 67, 50, 0.82)), 
@@ -225,7 +225,7 @@
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -238,6 +238,9 @@
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .service-card:hover {
@@ -246,15 +249,21 @@
             border-color: var(--accent-light);
         }
 
+        .service-card-highlight {
+            border: 2px solid var(--accent);
+            background: #f4fbf7;
+        }
+
         .service-card h3 {
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
         }
 
         .service-card ul {
             list-style: none;
             padding: 0;
+            margin-bottom: 1rem;
         }
 
         .service-card ul li {
@@ -271,6 +280,21 @@
             left: 0;
             color: var(--accent-light);
             font-weight: bold;
+        }
+
+        .btn-detail {
+            display: inline-block;
+            margin-top: auto;
+            padding-top: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .btn-detail:hover {
+            color: var(--accent-light);
         }
 
         /* Advantages Section */
@@ -431,36 +455,55 @@
     <section id="servicios">
         <div class="section-title">
             <h2>Portafolio de Servicios</h2>
-            <p>Ofrecemos cobertura completa en cada etapa del ciclo de vida ambiental de su organización.</p>
+            <p>Soluciones integrales que abarcan desde la ingeniería ambiental en campo hasta la estrategia ESG y cumplimiento normativo corporativo.</p>
         </div>
         <div class="services-grid">
+            
+            <!-- Tarjeta 1 -->
             <div class="service-card">
-                <h3>Licenciamiento Ambiental</h3>
+                <h3>Licenciamiento & Permisibilidad</h3>
                 <ul>
                     <li>Estudios de Impacto Ambiental (EIA)</li>
                     <li>Diagnóstico Ambiental de Alternativas (DAA)</li>
-                    <li>Trámite de Permisos de Aprovechamiento Forestal</li>
                     <li>Sustracción de Reservas Forestales</li>
+                    <li>Trámite de Permisos de Aprovechamiento Forestal</li>
                 </ul>
             </div>
+
+            <!-- Tarjeta 2 -->
             <div class="service-card">
-                <h3>Cumplimiento & EHS</h3>
+                <h3>Gestión Biótica, Planes de Compensación e Inversión 1%</h3>
+                <ul>
+                    <li>Planes de Inversión del 1% (Decreto 1076)</li>
+                    <li>Compensaciones por Pérdida de Biodiversidad</li>
+                    <li>Inventarios Forestales y Caracterización Biótica</li>
+                    <li>Monitoreo de Capital Natural y Datos Espaciales</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="service-card">
+                <h3>Cumplimiento & Gestión EHS</h3>
                 <ul>
                     <li>Planes de Manejo Ambiental (PMA)</li>
-                    <li>Auditorías e Interventoría Ambiental</li>
-                    <li>Seguimiento a Términos de Referencia ANLA</li>
                     <li>Informes de Cumplimiento Ambiental (ICA)</li>
+                    <li>Seguimiento a Términos de Referencia ANLA y CAR</li>
+                    <li>Auditorías e Interventoría Ambiental</li>
                 </ul>
             </div>
-            <div class="service-card">
-                <h3>Sostenibilidad Corporativa</h3>
+
+            <!-- Tarjeta 4 (Estrategia ESG y Cambio Climático) -->
+            <div class="service-card service-card-highlight">
+                <h3>Estrategia ESG & Cambio Climático</h3>
                 <ul>
-                    <li>Planes de Compensación por Pérdida de Biodiversidad</li>
-                    <li>Reportes ESG y Métricas Ambientales</li>
-                    <li>Asesoría Virtual Especializada B2B</li>
-                    <li>Estrategias de Descarbonización</li>
+                    <li>Reportes GRI, ISSB y Doble Materialidad</li>
+                    <li>Huella de Carbono (Alcances 1, 2 y 3) y SBTi</li>
+                    <li>Riesgos Climáticos y Biodiversidad (TCFD / TNFD)</li>
+                    <li>Soluciones ESG para Retail, Energía y Banca/Seguros</li>
                 </ul>
+                <a href="./servicios/estrategia-esg.html" class="btn-detail">Ver detalle completo y sectores →</a>
             </div>
+
         </div>
     </section>
 
@@ -495,6 +538,9 @@
     <footer>
         <p>&copy; 2026 BioConsultoría S.A.S. Todos los derechos reservados. | Bogotá D.C., Colombia</p>
     </footer>
+
+</body>
+</html>
 
 </body>
 </html>
