@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licenciamiento & Permisibilidad | BioConsultoría S.A.S.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1b4332;
+            --primary-dark: #081c15;
+            --accent: #2d6a4f;
+            --accent-light: #52b788;
+            --light-bg: #f8f9fa;
+            --text-main: #2b2b2b;
+            --text-muted: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--light-bg);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-light);
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-back:hover {
+            color: var(--accent);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 5%;
+        }
+
+        .page-container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            padding: 2.2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .details-col h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .details-col p.subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .scope-list {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .scope-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .scope-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-light);
+            font-weight: bold;
+        }
+
+        .contact-box {
+            background: #f4fbf7;
+            border: 1.5px solid var(--accent-light);
+            border-radius: 12px;
+            padding: 1.8rem;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-email {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+
+        .btn-email:hover {
+            background-color: var(--accent);
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: #8d99ae;
+            text-align: center;
+            padding: 0.8rem 5%;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                height: auto;
+            }
+            .page-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">BioConsultoría <span>S.A.S.</span></a>
+        <a href="../index.html" class="btn-back">← Volver al Inicio</a>
+    </header>
+
+    <main>
+        <div class="page-container">
+            <div class="details-col">
+                <h1>Licenciamiento & Permisibilidad Ambiental</h1>
+                <p class="subtitle">Estructuración técnica y jurídica integral para garantizar la viabilidad regulatoria de proyectos ante autoridades ambientales (ANLA, CARs).</p>
+                
+                <ul class="scope-list">
+                    <li><strong>Estudios de Impacto Ambiental (EIA):</strong> Caracterización física, biótica y socioeconómica completa.</li>
+                    <li><strong>Diagnóstico Ambiental de Alternativas (DAA):</strong> Evaluación comparativa para optimizar el trazado y localización.</li>
+                    <li><strong>Sustracción de Reservas Forestales:</strong> Justificación técnica y trámites especiales bajo normativa legal.</li>
+                    <li><strong>Permisos de Aprovechamiento Forestal:</strong> Inventarios 100% al detalle y solicitudes de afectación del recurso.</li>
+                </ul>
+            </div>
+
+            <div class="contact-box">
+                <h3>¿Cómo podemos ayudarte?</h3>
+                <p>Cuéntanos los requerimientos de tu proyecto o trámite ambiental y te asesoraremos en el menor tiempo.</p>
+                <a href="mailto:contacto@bioconsultoriasas.com?subject=Consulta%20Servicio%3A%20Licenciamiento%20y%20Permisibilidad" class="btn-email">Escribir a contacto@bioconsultoriasas.com</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BioConsultoría S.A.S. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
